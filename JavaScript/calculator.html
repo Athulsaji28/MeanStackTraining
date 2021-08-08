@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+        }
+
+        .repon {
+            width: 23%;
+            background-color: whitesmoke;
+            height: 510px;
+            border: 1px solid red;
+            margin: 5px;
+            padding: 2px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+
+    <div>
+        <label> Enter Value 1: &nbsp;</label>
+        <input type="number" id="inp1"><br>
+        <label> Enter Operat.: &nbsp;</label>
+        <input type="text" id="opr"><br>
+        <label> Enter Value 2: &nbsp;</label>
+        <input type="number" id="inp2"><br>
+        <button onclick="operate()">Submit</button>
+        <br>
+        <label>Result: &nbsp;</label>
+        <label id="hid"></h1>
+
+    </div>
+    <script>
+        function operate() {
+            var numb1 = document.getElementById("inp1").value;
+            var opre = document.getElementById("opr").value;
+            var numb2 = document.getElementById("inp2").value;
+
+            if (opre == '+') {
+                document.getElementById("hid").innerHTML = parseInt(numb1) + parseInt(numb2);
+            } else if (opre == '-') {
+                document.getElementById("hid").innerHTML = parseInt(numb1) - parseInt(numb2);
+            } else if (opre == '*') {
+                document.getElementById("hid").innerHTML = parseInt(numb1) * parseInt(numb2);
+            } else if (opre == '/') {
+                document.getElementById("hid").innerHTML = parseInt(numb1) / parseInt(numb2);
+            } else {
+                document.getElementById("hid").innerHTML = "Invalid operator";
+            }
+        }
+    </script>
+</body>
+
+</html>

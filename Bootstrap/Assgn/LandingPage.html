@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cowin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        button {
+            background-color: blue;
+            color: white;
+            padding: 14px 20px;
+            margin: -5px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #myDIV {
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+            background-color: lightblue;
+            margin-top: 20px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Ministry of Health,GOI</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="LandingPage.html">Dashboard</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="SignIn.html"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                <li><a href="LoginPage.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1 class="text-center">Welcome to Covin</h1>
+        <h2 class="text-center">Let's fight together to win Covid</h2>
+    </div>
+    <div class="container-fluid">
+        <div>
+            <h2 class="text-center">Check Your Nearest Vaccination Center And Slots Availability</h1>
+                <h3 class="text-center"> Search by Pin: </h3>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="pincode">
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" onclick="showDetails()">Check Availability</button>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+
+        </div>
+
+    </div>
+    <div class="hidden" style="display:none;" id="availabilitydetails">
+        
+    </div>
+    <script>
+        function showDetails() {
+
+            window.location.href = "detailspage.html";
+            var link = document.createElement('a');
+link.href = url;
+link.download = 'file.pdf';
+link.dispatchEvent(new MouseEvent('click'));
+            
+        }
+    </script>
+</body>
+
+</html>

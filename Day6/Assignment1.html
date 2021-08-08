@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Weather App</title>
+    <style>
+        .alert:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h2 class="text-center">Open Weather API</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+                <label>Location: &nbsp;</label>
+                <input type="text" id="locationVal">
+            </div>
+            <div class="col-sm-8">
+                <button type="submit" onclick="showDetails()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container" id="weatherDetails">
+
+    </div>
+    <script>
+        weatherDetails = [];
+
+        function showDetails() {
+
+            var location = document.getElementById("locationVal").value;
+            //console.log('location::', location);
+            var url = "https://api.openweathermap.org/data/2.5/" +
+                "weather?q=" + location + "&appid=5e009c94f49d379f63bd20ad81cc038e&units=metric";
+            //console.log('url::', url);
+            fetch(url)
+                .then(response => response.json())
+                //.then(json => console.log(json))
+                .then(json => displayWeather(json))
+
+
+        }
+
+        function displayWeather(jsondata) {
+            weatherDetails = jsondata;
+            //console.log('weatherDetails::', weatherDetails);
+            var cdata = "<div class = ' alert alert-success'><h1 class='text-center'>Weather Info</h1> </div>";
+
+            //data=data+`<tr><td>${todos[i].id}</td><td>${todos[i].title}</td><td>${todos[i].completed}</td></tr>`;
+
+            cdata = cdata + `<div class='row'>` +
+                `<div class="col-sm-2 text-center alert alert-info">` +
+                `<label> Coord Lon:</label>${weatherDetails.coord.lon}` +
+                `</div><div class="col-sm-2 text-center alert alert-danger">` +
+                `<label> Coord lat:</label>${weatherDetails.coord.lat}` +
+                `</div><div class="col-sm-2 text-center alert alert-warning">` +
+                `<label> Temp:</label>${weatherDetails.main.temp}` +
+                `</div><div class="col-sm-2 text-center alert alert-info">` +
+                `<label> Pressure:</label>${weatherDetails.main.pressure}` +
+                `</div><div class="col-sm-2 text-center alert alert-danger">` +
+                `<label> Humidity:</label>${weatherDetails.main.humidity}` +
+                `</div><div class="col-sm-2 text-center alert alert-warning">` +
+                `<label> Wind:</label>${weatherDetails.wind.speed}` +
+                `</div></div></div>`;
+
+            console.log('location::', cdata);
+            document.getElementById("weatherDetails").innerHTML = cdata;
+        }
+    </script>
+</body>
+
+</html>

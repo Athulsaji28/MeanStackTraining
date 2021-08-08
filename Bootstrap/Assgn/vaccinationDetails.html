@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        button {
+            background-color: rgb(51, 224, 129);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="LandingPage.html">Ministry of Health,GOI</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Dashboard</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="SignIn.html"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                <li><a href="LoginPage.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h2 class="text-center"> Vaccination Details</h2>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="alert alert-success text-center" role="alert">
+                    Successfully taken the 1st Dose of Vaccine on April 2nd.
+                </div>
+                <div class="alert alert-success text-center" role="alert">
+                    Successfully taken the 2nd Dose of Vaccine on July 21st.
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2">
+                <form method="get" action="Vaccinated.pdf">
+                    <button type="submit">Download Cerificate</button>
+                 </form>
+                </div>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

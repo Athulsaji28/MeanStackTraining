@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Patient Management</title>
+</head>
+<body>
+        <h1  style=" text-align:center">Corona Patient Management</h1>
+        <form action="patientDetails.html" method="post">
+            <label id="patName">Name of the patient    </label>
+            <input type="text">
+            <br><label>Sex &nbsp; </label>
+                Male: <input type="radio" name="sex" value="m" checked>
+                Female: <input type="radio" name="sex" value="f">
+                Others: <input type="radio" name="sex" value="o">
+            <br>
+            <label>Location</label>
+            <select id="location">
+                <option value="bng">Bengaluru</option>
+                <option value="chn">Chennai</option>
+                <option value="hyd">Hyderabad</option>
+            </select>
+            <br>
+            <label id="Pincode" >Pincode</label>
+            <input type="text" maxlength="6">
+            <br>
+            <label id="Aadhar">Aadhar No:</label>
+            <input type="text" id="Aadhar" name="Aadhar" maxlength="10">
+            <br>
+            <label id="Mobile">Mobile:</label>
+            <input type="text" pattern="\d*" id="Mobile" name="Mobile" maxlength="10">
+            <br>
+            <label id="Attendee">Attendee Name:</label>
+            <input type="text" id="Attendee" name="Attendee">
+            <br>
+            <label id="Date">Date and Time of Request:</label>
+            <input type="date" id="Date" name="Date">
+            <br>
+            <label id="SP02">SP02 Level:</label>
+            <input  type="range" id="SP02" name="SP02" min="0" max="100">
+            <br>
+            <label>LocType of Hospital ation</label>
+            <select id="Htype">
+                <option value="empty"></option>
+                <option value="Govt">Govt</option>
+                <option value="Private">Private</option>
+                <option value="care">Care Center</option>
+            </select>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

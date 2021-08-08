@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Table</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding-left: 5px;
+        }
+
+        </style>
+
+</head>
+<body>
+ 
+    <h1>IPL Info Page</h1>
+ 
+    <input type="text" name="name" id="name" placeholder="Name"><br>
+    <input type="text" name="team" id="team" placeholder="Team"><br>
+    <input type="text" name="season" id="season" placeholder="Season"><br>
+    <input type="text" name="run" id="run" placeholder="Runs"><br>
+    <input type="text" name="wickets" id="wickets" placeholder="Wickets"><br>
+    <button onclick="savePlayerDetail()">Save</button>
+    
+    <table id="result">
+    </table>
+    
+    <script>
+ 
+    iplSuperList=[];
+ 
+    function iplPlayer(name,team,season,run,wickets){
+        this.name = name;
+        this.team = team;
+        this.season= season;
+        this.run= run;
+        this.wickets = wickets;
+
+        this.getName=function(){
+            return this.name;
+        };
+        this.getTeam=function(){
+            return this.team;
+        };
+        this.getSeason=function(){
+            return this.season;
+        };
+        this.getRuns=function(){
+            return this.run;
+        };
+        this.getWicket=function(){
+            return this.wickets;
+        }
+    }
+
+    function assignOrangeCap(){
+        var maxRuns = 0, maxrunPos = 0;    
+        for (var i=0;i<iplSuperList.length;i++){
+            if(parseInt(maxRuns) < parseInt(iplSuperList[i].run)) {
+                maxrunPos = i;
+                maxRuns = iplSuperList[i].run;
+            }
+        }
+        console.log(maxrunPos);
+        return maxrunPos;
+    }
+    function assignPurpleCap(){
+        var maxWickets = 0, maxWicketsPos = 0;    
+        for (var i=0;i<iplSuperList.length;i++){
+            if(parseInt(maxWickets) < parseInt(iplSuperList[i].wickets)) {
+                maxWicketsPos = i;
+                maxWickets = iplSuperList[i].wickets;
+            }
+        }
+        return maxWicketsPos;
+    }
+    
+    function displayPlayers(){
+        var data = '';    
+        var maxRunsPosition = assignOrangeCap();
+        var maxWicketPosition = assignPurpleCap();
+        console.log(maxRunsPosition);
+        console.log(maxWicketPosition);
+        for (var i=0;i<iplSuperList.length;i++){
+            data = data + '<tr>';
+            data= data+'<td>'+iplSuperList[i].name+'</td>'
+                    +'<td>'+iplSuperList[i].team+'</td>'
+                    +'<td>'+iplSuperList[i].season+'</td>'
+                    +'<td';
+                    if(i == maxRunsPosition)  {
+                        data= data+' bgcolor=orange ';
+                    }
+             data= data+'>'+iplSuperList[i].run+'</td>'
+                    +'<td';
+                    if(i == maxWicketPosition)  {
+                        data= data+' bgcolor=purple ';
+                    }
+            data= data+'>'+iplSuperList[i].wickets+'</td>'; 
+                    data = data+'</tr>';
+        }
+        console.log(data);
+        document.getElementById('result').innerHTML=data;
+    }
+ 
+        function savePlayerDetail(){
+            name = document.getElementById("name").value;
+            team = document.getElementById("team").value;
+            season = document.getElementById("season").value;
+            run = document.getElementById("run").value;
+            wickets = document.getElementById("wickets").value;
+            iplList = new iplPlayer(name,team,season,run,wickets);
+            iplSuperList.push(iplList);
+            console.log('iplSuperList',iplSuperList);
+            displayPlayers();
+        }
+ 
+    </script>
+</body>
+</html>
